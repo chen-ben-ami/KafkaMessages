@@ -14,7 +14,8 @@ public class KafkaController {
     private Producer producer;
 
     @PostMapping(value = "/publish")
-    public void sendMessageToKafkaTopic(@RequestParam("message") String message) {
+    public String sendMessageToKafkaTopic(@RequestParam("message") String message) {
         this.producer.sendMessage(message);
+        return message;
     }
 }
